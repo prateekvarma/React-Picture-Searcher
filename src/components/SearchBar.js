@@ -4,10 +4,18 @@ import React from "react";
 class SearchBar extends React.Component {
   state = { term: "" };
 
+  //Below, if you use a normal function declaration to access the state value, you will get the following error :
+  //** Uncaught TypeError: Cannot read properties of undefined (reading 'state') **
+  //Solution 1 : Simply use an arrow function, Solution 2 : Use a binder inside a constructor like, this.drive = this.drive.bind(this)
+  onFormSubmit(event) {
+    event.preventDefault();
+    console.log(this.state.term);
+  }
+
   render() {
     return (
       <div className="ui segment">
-        <form className="ui form">
+        <form className="ui form" onSubmit={this.onFormSubmit}>
           <div className="field">
             <label>Image Search</label>
             <input
