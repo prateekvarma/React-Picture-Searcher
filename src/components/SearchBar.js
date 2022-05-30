@@ -7,7 +7,7 @@ class SearchBar extends React.Component {
   //Below, if you use a normal function declaration to access the state value, you will get the following error :
   //** Uncaught TypeError: Cannot read properties of undefined (reading 'state') **
   //Solution 1 : Simply use an arrow function, Solution 2 : Use a binder inside a constructor like, this.drive = this.drive.bind(this)
-  onFormSubmit(event) {
+  onFormSubmit = (event) => {
     event.preventDefault();
     console.log(this.state.term);
   }
