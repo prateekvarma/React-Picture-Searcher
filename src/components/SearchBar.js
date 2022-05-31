@@ -9,7 +9,9 @@ class SearchBar extends React.Component {
   //Solution 1 : Simply use an arrow function, Solution 2 : Use a binder inside a constructor like, this.drive = this.drive.bind(this)
   onFormSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state.term);
+    //Below, we're using 'this' to access a prop, because we're in a class based component
+    this.props.onSubmitData(this.state.term);
+    //Above, the function 'onSearchSubmit' is defined in a parent component, where we're sending the 'state.term'
   }
 
   render() {
