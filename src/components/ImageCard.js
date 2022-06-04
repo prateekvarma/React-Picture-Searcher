@@ -9,7 +9,13 @@ class ImageCard extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.imageRef);
+    // Below, we cannot just do 'this.imageRef.current.clientHeight' because the clientHeight property does not load in time. So we use an event Listener.
+    this.imageRef.current.addEventListener('load', this.setSpans);
+  }
+
+  //Below setSpans is a callback function, that is defined arrow, as it takes care of the bind problem in React. This callback function will be able to extract each image's dimentions
+  setSpans = () => {
+    console.log(this.imageRef.current.clientHeight);
   }
 
   render() {
