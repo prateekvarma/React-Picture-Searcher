@@ -17,7 +17,7 @@ class ImageCard extends React.Component {
   //Below setSpans is a callback function, that is defined arrow, as it takes care of the bind problem in React. This callback function will be able to extract each image's dimentions
   setSpans = () => {
     const height = this.imageRef.current.clientHeight;
-    const spans = Math.ceil(height / 150);
+    const spans = Math.ceil(height / 10); //the 10px corresponds to 'rid-auto-rows' value in css
     this.setState({ spans: spans });
   };
 
